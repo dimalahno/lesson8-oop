@@ -7,14 +7,18 @@ from classes.product import Product
 product1 = Product("Laptop", 1000)
 product2 = Product("Smartphone", 500)
 product3 = Product("Keyboard", 45)
+product4 = Product("Mouse", 45)
 
 print(product1)
 print(product2)
 print(product3)
 
 # Создаем скидки
-discount1 = Discount("Holiday Discount", 20)
-discount2 = Discount("Promo-code Discount", 10)
+discount1 = Discount("Holiday", 20)
+discount2 = Discount("Promo-code", 10)
+
+print(discount1)
+print(discount2)
 
 # Применяем скидку к товару
 discounted_price1 = discount1.apply_discount(product1.price, discount1)
@@ -27,22 +31,16 @@ print(f"Цена {product2.name} после скидки Promo-code Discount: {d
 order1 = Order([product1])
 order2 = Order([product2, product3])
 order3 = Order([product2])
-order4 = Order([product3])
+order4 = Order([product3, product4])
+
 # Выводим информацию о заказах
-print(order1)  # Вывод: Заказ (Общая цена = 1000)
-print(order2)  # Вывод: Заказ (Общая цена = 1500)
-
-# Выводим общее количество заказов
-print(f"Всего заказов: {Order.total_orders()}")
-# Выводим общую сумму заказов
-print(f"Всего сумма заказов: {Order.total_amount()}")
-
-
+print(order1)
+print(order2)
+print(order3)
+print(order4)
 
 # Создаем клиента и добавляем заказы
 customer1 = Customer("Дима")
-# Проверка передачи невалидного заказ. -> Ошибка.
-customer1.add_order("Заказ")
 customer1.add_order(order1)
 customer1.add_order(order2)
 
@@ -53,6 +51,12 @@ customer2.add_order(order4)
 print(customer1)
 print(customer2)
 
+# Выводим общее количество всех заказов для всех
+print(f"Количество всех заказов для всех клиентов: {Order.total_orders()}")
+# Выводим общую сумму всех заказов для всех клиентов
+print(f"Сумма всех заказов для всех клиентов: {Order.total_amount()}")
+
 # Сравнение товаров по цене
 print(product1 == product2)
 print(product3 < product2)
+print(product3 == product4)
