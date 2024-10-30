@@ -28,10 +28,10 @@ print(discount1)
 print(discount2)
 
 # Применяем скидку к товару
-discounted_price1 = discount1.apply_discount(product1.price, discount1)
+discounted_price1 = Discount.apply_discount(product1.price, discount1)
 print(f"Цена товара {product1.name} после скидки {discount1.description}: {discounted_price1}")
 
-discounted_price2 = discount2.apply_discount(product1.price, discount2)
+discounted_price2 = Discount.apply_discount(product1.price, discount2)
 print(f"Цена товара {product2.name} после скидки {discount2.description}: {discounted_price2}")
 
 # Создаем заказы

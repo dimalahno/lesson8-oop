@@ -5,6 +5,15 @@ class Discount:
     """
 
     def __init__(self, description: str, discount_percent: float):
+        """
+        Конструктор инициализирует объект Discount
+        :param description: тип скидки
+        :param discount_percent: размер скидки
+        """
+        if not description:
+            raise ValueError("Название скидки не может быть пустым.")
+        if discount_percent <= 0:
+            raise ValueError("Размер скидки не может быть отрицательной.")
         self.description = description
         self.discount_percent = discount_percent
 
@@ -16,6 +25,10 @@ class Discount:
         :param discount: скидка
         :return: цена товара с учётом скидки
         """
+        # Проверка на валидность цены.
+        if price <= 0:
+            print("Ошибка: неверно указана цена.")
+
         # Проверка на валидность скидки.
         if discount and isinstance(discount, Discount):
             return price * (1 - discount.discount_percent / 100)

@@ -10,6 +10,10 @@ class Product:
         :param name: название товара
         :param price: цена товара
         """
+        if not name:
+            raise ValueError("Название товара не может быть пустым.")
+        if price <= 0:
+            raise ValueError("Цена товара не может быть отрицательной.")
         self.name = name
         self.price = price
 

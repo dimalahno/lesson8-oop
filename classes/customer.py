@@ -13,6 +13,8 @@ class Customer:
         и инициализирует объект Customer.
         :param name: имя клиента
         """
+        if not name:
+            raise ValueError("Имя клиента не может быть пустым.")
         self.name = name
         self.orders = []
 
