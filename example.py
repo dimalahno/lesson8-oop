@@ -12,6 +12,13 @@ product4 = Product("Mouse", 45)
 print(product1)
 print(product2)
 print(product3)
+print(product4)
+
+# Сравнение товаров по цене
+print(f"{product1.price} == {product2.price}:", product1 == product2)
+print(f"{product3.price} < {product2.price}:", product3 < product2)
+print(f"{product3.price} == {product4.price}:", product3 == product4)
+print(f"{product1.price} > {product2.price}:", product1 > product2)
 
 # Создаем скидки
 discount1 = Discount("Holiday", 20)
@@ -22,10 +29,10 @@ print(discount2)
 
 # Применяем скидку к товару
 discounted_price1 = discount1.apply_discount(product1.price, discount1)
-print(f"Цена {product1.name} после скидки Holiday Discount: {discounted_price1}")
+print(f"Цена {product1.name} после скидки {discount1.description}: {discounted_price1}")
 
 discounted_price2 = discount2.apply_discount(product1.price, discount2)
-print(f"Цена {product2.name} после скидки Promo-code Discount: {discounted_price2}")
+print(f"Цена {product2.name} после скидки{discount2.description}: {discounted_price2}")
 
 # Создаем заказы
 order1 = Order([product1])
@@ -51,12 +58,8 @@ customer2.add_order(order4)
 print(customer1)
 print(customer2)
 
-# Выводим общее количество всех заказов для всех
+# Выводим общее количество всех заказов для всех клиентов
 print(f"Количество всех заказов для всех клиентов: {Order.total_orders()}")
 # Выводим общую сумму всех заказов для всех клиентов
 print(f"Сумма всех заказов для всех клиентов: {Order.total_amount()}")
 
-# Сравнение товаров по цене
-print(product1 == product2)
-print(product3 < product2)
-print(product3 == product4)

@@ -14,7 +14,7 @@ class Discount:
         Вычисляет цену товара со скидкой
         :param price: цена товара
         :param discount: скидка
-        :return:
+        :return: цена товара с учётом скидки
         """
         return price * (1 - discount.discount_percent / 100)
 
