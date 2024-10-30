@@ -1,15 +1,19 @@
 class Discount:
+    """
+    Класс Discount
+    Этот класс определяет тип скидки и ее процент.
+    """
 
-    def __init__(self, description: str, discount_percent: int):
+    def __init__(self, description: str, discount_percent: float):
         self.description = description
         self.discount_percent = discount_percent
 
     @staticmethod
     def apply_discount(price: float, discount: 'Discount') -> float:
         """
-
-        :param price:
-        :param discount:
+        Вычисляет цену товара со скидкой
+        :param price: цена товара
+        :param discount: скидка
         :return:
         """
         return price * (1 - discount.discount_percent / 100)

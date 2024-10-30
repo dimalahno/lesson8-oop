@@ -4,9 +4,7 @@ from classes.order import Order
 class Customer:
     """
     Класс Customer
-
     Этот класс представляет клиента в интернет-магазине
-
     """
 
     def __init__(self, name: str):
