@@ -16,10 +16,16 @@ class Discount:
         :param discount: скидка
         :return: цена товара с учётом скидки
         """
-        return price * (1 - discount.discount_percent / 100)
+        # Проверка на валидность скидки.
+        if discount and isinstance(discount, Discount):
+            return price * (1 - discount.discount_percent / 100)
+        else:
+            print("Ошибка: передана невалидный тип скидки.")
+
 
     def __str__(self):
         return f"Скидка (Вид={self.description}, Размер={self.discount_percent}%)"
+
 
     def __repr__(self):
         return f"Discount ({self.description!r}, {self.discount_percent!r})"
